@@ -18,7 +18,7 @@ ImageLUT.prototype.init = function(dict, imagePath, done) {
 		// console.timeEnd("ImageLUT --> Image loaded");
 		// console.info("ImageLUT -->", imagePath, img.width, "x", img.height, img.channels);
 		that.img = img;
-		done(undefined);
+		done(undefined, img);
 	})
 };
 

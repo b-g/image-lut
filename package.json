@@ -1,7 +1,7 @@
 {
   "name": "image-lut",
   "author": "Benedikt Groß <bg@benedikt-gross.de>",
-  "description": "",
+  "description": "Image Lookup Table library for Node.js",
   "version": "1.0.0",
   "dependencies": {
     "lodash": "^3.10.1",
@@ -15,6 +15,6 @@
     "chai": "^3.2.0"
   },
   "scripts": {
-    "test": "mocha test/test.js"
+    "test": "mocha test.js"
   }
 }
