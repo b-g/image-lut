@@ -2,8 +2,9 @@ var expect = require('chai').expect;
 var path   = require('path');
 var _   = require('lodash');
 
-var ImageLUT = require('..').ImageLUT;
-var rgbToNumber = ImageLUT.rgbToNumber;
+var ImageLUT = require('./index').ImageLUT;
+var rgbToNumber = require('./index').rgbToNumber;
+var numberToRgb = require('./index').numberToRgb;
 
 
 describe('ImageLUT', function () {
@@ -13,7 +14,7 @@ describe('ImageLUT', function () {
 	});
 	describe('#init', function () {
 		it('should load a gray 8bit image',function(done){
-			lut.init(null, path.join(__dirname, "countries.png"), function (err) {
+			lut.init(null, path.join(__dirname, "data/countries.png"), function (err) {
 				expect(err).to.be.an('undefined');
 				var info = lut.size();
 				expect(info.width).to.equal(2048);
@@ -23,7 +24,7 @@ describe('ImageLUT', function () {
 			});
 		});
 		it('should load a rgb image',function(done){
-			lut.init(null, path.join(__dirname, "colors.png"), function (err) {
+			lut.init(null, path.join(__dirname, "data/colors.png"), function (err) {
 				expect(err).to.be.an('undefined');
 				var info = lut.size();
 				expect(info.width).to.equal(640);
@@ -36,7 +37,7 @@ describe('ImageLUT', function () {
 
 	describe('#pixel', function () {
 		before(function (done) {
-			lut.init(null, path.join(__dirname, "colors.png"), function (err) {
+			lut.init(null, path.join(__dirname, "data/colors.png"), function (err) {
 				done();
 			});
 		});
@@ -67,7 +68,7 @@ describe('ImageLUT', function () {
 	describe('#color', function () {
 		describe('RGB', function () {
 			before(function (done) {
-				lut.init(null, path.join(__dirname, "colors.png"), function (err) {
+				lut.init(null, path.join(__dirname, "data/colors.png"), function (err) {
 					done();
 				});
 			});
@@ -81,7 +82,7 @@ describe('ImageLUT', function () {
 		});
 		describe('Gray 8bit', function () {
 			before(function (done) {
-				lut.init(null, path.join(__dirname, "countries.png"), function (err) {
+				lut.init(null, path.join(__dirname, "data/countries.png"), function (err) {
 					done();
 				});
 			});
@@ -98,13 +99,13 @@ describe('ImageLUT', function () {
 	describe('#lookup', function () {
 		describe('Gray 8bit', function () {
 			before(function (done) {
-				var countriesList = require('./countries_list.json');
+				var countriesList = require('./data/countries_list.json');
 				var countriesDict = {};
 				_.each(countriesList, function(row){
 					var key = [row.key,row.key,row.key,255].join('/');
 					countriesDict[key] = row;
 				});
-				lut.init(countriesDict, path.join(__dirname, "countries.png"), function (err) {
+				lut.init(countriesDict, path.join(__dirname, "data/countries.png"), function (err) {
 					done();
 				});
 			});
@@ -119,15 +120,15 @@ describe('ImageLUT', function () {
 
 	describe('#domain', function () {
 		describe('Gray 8bit', function () {
-			var countriesBounds = require('./countries_bounds.json')[0];
-			var countriesList = require('./countries_list.json');
+			var countriesBounds = require('./data/countries_bounds.json')[0];
+			var countriesList = require('./data/countries_list.json');
 			before(function (done) {
 				var countriesDict = {};
 				_.each(countriesList, function(row){
 					var key = [row.key,row.key,row.key,255].join('/');
 					countriesDict[key] = row;
 				});
-				lut.init(countriesDict, path.join(__dirname, "countries.png"), function (err) {
+				lut.init(countriesDict, path.join(__dirname, "data/countries.png"), function (err) {
 					done();
 				});
 			});
@@ -153,5 +154,21 @@ describe('ImageLUT', function () {
 			});
 		});
 	});
+});
 
+describe('rgbToNumber', function () {
+	it('should convert an r,g,b,a to number',function(){
+		expect( rgbToNumber(64,177,251,255) ).to.equal(1085406207);
+	});
+});
+
+describe('numberToRgb', function () {
+	it('should convert a number to [r,g,b,a]',function(){
+		var a = numberToRgb(1085406207)
+		expect(a.length).to.equal(4);
+		expect(a[0]).to.equal(64);
+		expect(a[1]).to.equal(177);
+		expect(a[2]).to.equal(251);
+		expect(a[3]).to.equal(255);
+	});
 });
