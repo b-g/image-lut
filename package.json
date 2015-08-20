@@ -1,0 +1,20 @@
+{
+  "name": "image-lut",
+  "author": "Benedikt Groß <bg@benedikt-gross.de>",
+  "description": "",
+  "version": "1.0.0",
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "pngparse": "^2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/b-g/image-lut"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0"
+  },
+  "scripts": {
+    "test": "mocha test/test.js"
+  }
+}
