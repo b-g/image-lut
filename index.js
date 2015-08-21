@@ -1,3 +1,5 @@
+"use strict";
+
 var pngparse = require("pngparse")
  
 function ImageLUT() {

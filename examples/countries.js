@@ -1,3 +1,5 @@
+"use strict";
+
 var ImageLUT = require('../index').ImageLUT;
 var lut = new ImageLUT();
 
