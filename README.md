@@ -1,6 +1,6 @@
 image-lut
 =========
-** Image [Lookup Table](https://en.wikipedia.org/wiki/Lookup_table) library for [Node.js](https://nodejs.org/) **
+Image [Lookup Table](https://en.wikipedia.org/wiki/Lookup_table) library for [Node.js](https://nodejs.org/)
 
 
 Install
@@ -53,7 +53,7 @@ API
 
 Tests
 -----
-```bash
+```
 $ npm install
 $ npm install -g mocha
 $ npm test
