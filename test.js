@@ -121,6 +121,26 @@ describe('ImageLUT', function () {
 	});
 
 	describe('#domain', function () {
+		describe('RGB', function () {
+			before(function (done) {
+				lut.init(null, path.join(__dirname, "data/colors.png"), function (err) {
+					done();
+				});
+			});
+			it('should set an input domain and be pixel perfect',function(){
+				expect(lut.pixel(0,0)).to.equal(0xFFFFFFFF);
+				expect(lut.pixel(639,0)).to.equal(0x0000FEFF);
+				expect(lut.pixel(580,360)).to.equal(0xFFFF00FF);
+				var size = lut.size();
+				lut.domain(0, size.width, 0, size.height);
+				var d = lut.domain();
+				expect(d.xEnd).to.equal(size.width);
+				expect(d.yEnd).to.equal(size.height);
+				expect(lut.pixel(0,0)).to.equal(0xFFFFFFFF);
+				expect(lut.pixel(639,0)).to.equal(0x0000FEFF);
+				expect(lut.pixel(580,360)).to.equal(0xFFFF00FF);
+			});
+		});
 		describe('Gray 8bit', function () {
 			var countriesBounds = require('./data/countries_bounds.json')[0];
 			var countriesList = require('./data/countries_list.json');
@@ -134,7 +154,7 @@ describe('ImageLUT', function () {
 					done();
 				});
 			});
-			it('should set an input domain',function(){
+			it('should set the input domain of country.png',function(){
 				lut.domain(
 					countriesBounds.upperLeft[0],
 					countriesBounds.lowerRight[0],
@@ -147,7 +167,7 @@ describe('ImageLUT', function () {
 				expect(d.yStart).to.equal(countriesBounds.upperLeft[1]);
 				expect(d.yEnd).to.equal(countriesBounds.lowerRight[1]);
 			});
-			it('should lookup a value with set domain',function(){
+			it('should lookup country values',function(){
 				expect( lut.lookup(6.074,49.787).name ).to.equal('Luxembourg');
 				expect( lut.lookup(0,52).name ).to.equal('United Kingdom');
 				expect( lut.lookup(103.809408145,1.34505369037).name ).to.equal('Singapore');
