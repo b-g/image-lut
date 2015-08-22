@@ -12,6 +12,8 @@ $ npm install image-lut
 
 Examples
 --------
+See the [examples](https://github.com/b-g/image-lut/tree/master/examples) folder or [test.js](https://github.com/b-g/image-lut/blob/master/test.js) for how to use the image-lut.
+
 ###Countries Lookup by Lat/Lon
 
 ![countries_small](https://cloud.githubusercontent.com/assets/480224/9385018/44742bd0-4754-11e5-8916-8e97b670cc5d.png)
@@ -63,5 +65,5 @@ $ npm test
 
 Acknowledgments
 ---------------
-* image-lut is based on the ideas of [Images as datastore](http://well-formed-data.net/archives/808/images-as-datastore) by [Moritz Stefaner](http://truth-and-beauty.net/) and Stephan & Steffen ([Studio NAND](http://www.nand.io/))
+* image-lut is based on the ideas of [Images as datastore](http://well-formed-data.net/archives/808/images-as-datastore) by [Moritz Stefaner](http://truth-and-beauty.net/) and Stephan & Steffen from [Studio NAND](http://www.nand.io/)
 * png reading via [pngparse](https://github.com/darkskyapp/pngparse)
