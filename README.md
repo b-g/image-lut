@@ -40,16 +40,8 @@ lut.init(countries, "../data/countries.png", function (err) {
 API
 ---
 ### ImageLUT
-* .init(dict, imagePath, done)
-* .domain(xStart, xEnd, yStart, yEnd)
-* .lookup(x,y) -> value
-* .color(x,y) -> [r,g,b,a] array
-* .size() -> image width, hight and channels count
-* .pixel(x,y) -> RBGA values encoded into a single number
 
 ### Helpers
-* numberToRgb(rgba) -> [r,g,b,a] array
-* rgbToNumber(r, g, b, a) -> rgba number
 
 Tests
 -----
