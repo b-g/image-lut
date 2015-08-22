@@ -29,7 +29,9 @@ var countries = {
 };
 
 lut.init(countries, "../data/countries.png", function (err) {
-	lut.domain(-180, 180, 83.6341007, -90); 
+	// optional, set input domain of image coordinates 
+	lut.domain(-180, 180, 83.6341007, -90);
+	
 	console.log( lut.lookup(6.074,49.787) ); // Luxembourg
 	console.log( lut.lookup(0,52) ); // United Kingdom
 });
@@ -40,8 +42,16 @@ lut.init(countries, "../data/countries.png", function (err) {
 API
 ---
 ### ImageLUT
+* `.init(dict, imagePath, callback)`
+* `.domain(xStart, xEnd, yStart, yEnd)` optional, like [d3.domain](https://github.com/mbostock/d3/wiki/Quantitative-Scales#linear_domain) to set the input domain of the coordinates of the image 
+* `.lookup(x,y)` -> value
+* `.color(x,y)` -> [r,g,b,a] array
+* `.size()` -> image width, hight and channels count
+* `.pixel(x,y)` -> RBGA values encoded into a single number
 
 ### Helpers
+* `numberToRgb(rgba)` -> [r,g,b,a] array
+* `rgbToNumber(r, g, b, a)` -> rgba number
 
 Tests
 -----
