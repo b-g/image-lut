@@ -171,7 +171,7 @@ describe('ImageLUT', function () {
 				expect( lut.lookup(6.074,49.787).name ).to.equal('Luxembourg');
 				expect( lut.lookup(0,52).name ).to.equal('United Kingdom');
 				expect( lut.lookup(103.809408145,1.34505369037).name ).to.equal('Singapore');
-				expect( lut.lookup(-160.204413038,21.8465267725).name ).to.equal('United States of America');
+				expect( lut.lookup(-160.204413038,21.8465267725).name ).to.equal('United States');
 				expect( lut.lookup(0,0) ).to.be.an('undefined');
 			});
 		});
