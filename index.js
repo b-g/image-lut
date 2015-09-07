@@ -1,6 +1,7 @@
 "use strict";
 
-var pngparse = require("pngparse")
+var pngparse = require("pngparse");
+var deasync = require('deasync');
  
 function ImageLUT() {
 	this.img = null;
@@ -11,17 +12,21 @@ function ImageLUT() {
 ImageLUT.prototype.init = function(dict, imagePath, done) {
 	var that = this;
 	that.dict = dict;
-	// console.time("ImageLUT --> Image loaded");
 	pngparse.parseFile(imagePath, function(err, img) {
 		if (err) {
 			console.error("ImageLUT --> Bad image path");
-			done(err);
+			return done(err);
 		}
-		// console.timeEnd("ImageLUT --> Image loaded");
 		// console.info("ImageLUT -->", imagePath, img.width, "x", img.height, img.channels);
 		that.img = img;
 		done(undefined, img);
 	})
+};
+
+ImageLUT.prototype.initSync = function(dict, imagePath) {
+	this.dict = dict;
+	var parseFile = deasync(pngparse.parseFile);
+	this.img = parseFile(imagePath);
 };
 
 ImageLUT.prototype.domain = function(xStart, xEnd, yStart, yEnd) {

@@ -45,6 +45,7 @@ API
 ---
 ### ImageLUT
 * `.init(dict, imagePath, callback)`
+* `.initSync(dict, imagePath)`
 * `.domain(xStart, xEnd, yStart, yEnd)` optional, like [d3.domain](https://github.com/mbostock/d3/wiki/Quantitative-Scales#linear_domain) to set the input domain of the coordinates of the image 
 * `.lookup(x,y)` -> value
 * `.color(x,y)` -> [r,g,b,a] array

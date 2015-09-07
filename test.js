@@ -14,6 +14,24 @@ describe('ImageLUT', function () {
 	before(function () {
 		lut = new ImageLUT();
 	});
+
+	describe('#initSync', function () {
+		it('should load a gray 8bit image',function(){
+			lut.initSync(null, path.join(__dirname, "data/countries.png"));
+			var info = lut.size();
+			expect(info.width).to.equal(2048);
+			expect(info.height).to.equal(1024);
+			expect(info.channels).to.equal(1);
+		});
+		it('should load a rgb image',function(){
+			lut.initSync(null, path.join(__dirname, "data/colors.png"));
+			var info = lut.size();
+			expect(info.width).to.equal(640);
+			expect(info.height).to.equal(480);
+			expect(info.channels).to.equal(3);
+		});
+	});
+
 	describe('#init', function () {
 		it('should load a gray 8bit image',function(done){
 			lut.init(null, path.join(__dirname, "data/countries.png"), function (err) {

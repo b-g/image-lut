@@ -2,7 +2,7 @@
   "name": "image-lut",
   "author": "Benedikt Groß <bg@benedikt-gross.de>",
   "description": "Image Lookup Table library for Node.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "keywords": [
     "lut",
     "lookup",
@@ -12,6 +12,7 @@
     "image"
   ],
   "dependencies": {
+    "deasync": "^0.1.1",
     "lodash": "^3.10.1",
     "pngparse": "^2.0.1"
   },
