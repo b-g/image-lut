@@ -50,7 +50,7 @@ API
 * `.lookup(x,y)` -> value
 * `.color(x,y)` -> [r,g,b,a] array
 * `.size()` -> image width, hight and channels count
-* `.pixel(x,y)` -> RBGA values encoded into a single number
+* `.pixel(x,y)` -> RBGA values 4 x 8bit encoded into a single number
 
 ### Helpers
 * `numberToRgb(rgba)` -> [r,g,b,a] array
@@ -60,7 +60,6 @@ Tests
 -----
 ```
 $ npm install
-$ npm install -g mocha
 $ npm test
 ```
 
