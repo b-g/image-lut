@@ -2,6 +2,7 @@ image-lut
 =========
 Image [Lookup Table](https://en.wikipedia.org/wiki/Lookup_table) library for [Node.js](https://nodejs.org/)
 
+[![Build Status](https://travis-ci.org/b-g/image-lut.svg?branch=master)](https://travis-ci.org/b-g/image-lut)
 
 Install
 -------
