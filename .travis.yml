@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '0.10'
+deploy:
+  provider: npm
+  email: bg@benedikt-gross.de
+  api_key:
+    secure: 1cxUaOgTmqeJTEMJn+SwVZs+xddXIL1UU4d6bDzf8bXIj+N57CBiv7zbubSCdzxXAJfJB8ru+j2bnJl+xcLA/GX0Fj6/lyHR7lHGKSKCNTcgTLL+4tpkGNZm0vKbI/MkDbNIiyEcpccJGgfiaIDFlk7nh6eptecYlWJneSmI1fiwh+6hWim6IByAVIHw9YUxQyyvsbwFAoI5PMBq0rV8juo1fMbtFXG72Nb15SwWo92ZXUvclyD2z5K8QlyTHlJyGM95fB85GNQjA052rZa4YDFWjE2P/acobhzdY64LS9HTvn5gfkZfffDtLqArO/ei4u05RKDzx2L2bab5cjUsGroplkZ56TaCzPskn2eq5o9ekcMq05OUJY7m4htpBmqOPX0dKyf8UPntKFZ2Vr3/SPfJxfv3dG20C1OlIEH6nCSESDPh4YuqZmMG6tpRsBHqu5CzqW0b2Hhke9GEEbGJxSSv6MY9r9+3PiH8HihlhGzPlbUEua1izOeSGkV1G/0cUuruGLE/kB4fNyrt4aK06M/FfYZmw+/qdkNj2eh5sCMqdzibh0w3SrJEozB1+nqR+H5JtckJQzBlqI/QtthvNM/smHSTm289mtaUHBjZVwN+9V/woKsb1ucwN0Z0bFLM+BB7ojNtljbU3a7R9q2iqpk0zJcE7PlIPHDQliH9f+c=
+  on:
+    tags: true
+    repo: b-g/image-lut
